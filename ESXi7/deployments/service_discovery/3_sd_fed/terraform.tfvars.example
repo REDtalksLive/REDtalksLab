@@ -1,0 +1,114 @@
+esxi_hostname     = "esx1.redtalks.lab"
+esxi_username     = "<username>"
+esxi_password     = "<password>"
+ova_url           = "http://nas.redtalks.lab:8000/rtlabBaseVM.ova"
+vm_guest_username = "<username>"
+vm_guest_password = "<password>"
+
+dc1_server_settings   = {
+  "server1" = {
+    product     = "consul"
+    name        = "consul-server-1"
+    mode        = "server"
+    dc          = "RTlab-dc-1"
+    config      = "sd-fed"
+    mac_addr    = "00:50:56:a1:b1:c1"
+  }
+  "server2" = {
+    product     = "consul"
+    name        = "consul-server-2"
+    mode        = "server"
+    dc          = "RTlab-dc-1"
+    config      = "sd-fed"
+    mac_addr    = "00:50:56:a1:b1:c2"
+  }
+  "server3" = {
+    product     = "consul"
+    name        = "consul-server-3"
+    mode        = "server"
+    dc          = "RTlab-dc-1"
+    config      = "sd-fed"
+    mac_addr    = "00:50:56:a1:b1:c3"
+  }
+}
+
+dc1_client_settings   = {
+  "client1" = {
+    product     = "consul"
+    name        = "webserver1"
+    mode        = "client"
+    dc          = "RTlab-dc-1"
+    config      = "sd-fed"
+    service     = "web"
+  }
+  "client2" = {
+    product     = "consul"
+    name        = "webserver2"
+    mode        = "client"
+    dc          = "RTlab-dc-1"
+    config      = "sd-fed"
+    service     = "web"
+  }
+  "client3" = {
+    product     = "consul"
+    name        = "appserver1"
+    mode        = "client"
+    dc          = "RTlab-dc-1"
+    config      = "sd-fed"
+    service     = "app"
+  }
+}
+
+dc2_server_settings   = {
+  "server4" = {
+    product     = "consul"
+    name        = "consul-server-4"
+    mode        = "server"
+    dc          = "RTlab-dc-2"
+    config      = "sd-fed"
+    mac_addr    = "00:50:56:a1:b1:c4"
+  }
+  "server5" = {
+    product     = "consul"
+    name        = "consul-server-5"
+    mode        = "server"
+    dc          = "RTlab-dc-2"
+    config      = "sd-fed"
+    mac_addr    = "00:50:56:a1:b1:c5"
+  }
+  "server6" = {
+    product     = "consul"
+    name        = "consul-server-6"
+    mode        = "server"
+    dc          = "RTlab-dc-2"
+    config      = "sd-fed"
+    mac_addr    = "00:50:56:a1:b1:c6"
+  }
+}
+
+dc2_client_settings   = {
+  "client4" = {
+    product     = "consul"
+    name        = "webserver3"
+    mode        = "client"
+    dc          = "RTlab-dc-2"
+    config      = "sd-fed"
+    service     = "web"
+  }
+  "client5" = {
+    product     = "consul"
+    name        = "webserver4"
+    mode        = "client"
+    dc          = "RTlab-dc-2"
+    config      = "sd-fed"
+    service     = "web"
+  }
+  "client6" = {
+    product     = "consul"
+    name        = "appserver2"
+    mode        = "client"
+    dc          = "RTlab-dc-2"
+    config      = "sd-fed"
+    service     = "app"
+  }
+}

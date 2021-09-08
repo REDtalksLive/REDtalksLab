@@ -1,0 +1,81 @@
+esxi_hostname     = "esx1.redtalks.lab"
+esxi_username     = "root"
+esxi_password     = "<password>"
+ova_url           = "http://nas.redtalks.lab:8000/rtLabDebianConsulMeshEnvoyVM.ova"
+vm_guest_username = "debian"
+vm_guest_password = "<password>"
+
+server_settings   = {
+  "server1" = {
+    product     = "consul"
+    name        = "consul-server-1"
+    mode        = "server"
+    config      = "sm-envoy"
+    mac_addr    = "00:50:56:a1:b1:c1"
+  }
+  "server2" = {
+    product     = "consul"
+    name        = "consul-server-2"
+    mode        = "server"
+    config      = "sm-envoy"
+    mac_addr    = "00:50:56:a1:b1:c2"
+  }
+  "server3" = {
+    product     = "consul"
+    name        = "consul-server-3"
+    mode        = "server"
+    config      = "sm-envoy"
+    mac_addr    = "00:50:56:a1:b1:c3"
+  }
+}
+
+client_settings   = {
+  "client1" = {
+    product     = "consul"
+    name        = "webserver1"
+    mode        = "client"
+    config      = "sm-envoy"
+    service     = "web"
+    sidecar     = "{\n      proxy = {\n        upstreams = [\n          {\n            destination_name = \"app\"\n            local_bind_port = 9191\n          }\n        ]\n      }\n    }"
+  }
+  "client2" = {
+    product     = "consul"
+    name        = "webserver2"
+    mode        = "client"
+    config      = "sm-envoy"
+    service     = "web"
+    sidecar     = "{\n      proxy = {\n        upstreams = [\n          {\n            destination_name = \"app\"\n            local_bind_port = 9191\n          }\n        ]\n      }\n    }"
+  }
+  "client3" = {
+    product     = "consul"
+    name        = "apiserver1"
+    mode        = "client"
+    config      = "sm-envoy"
+    service     = "api"
+    sidecar     = "{\n      proxy = {\n        upstreams = [\n          {\n            destination_name = \"app\"\n            local_bind_port = 9191\n          }\n        ]\n      }\n    }"
+  }
+  "client4" = {
+    product     = "consul"
+    name        = "apiserver2"
+    mode        = "client"
+    config      = "sm-envoy"
+    service     = "api"
+    sidecar     = "{\n      proxy = {\n        upstreams = [\n          {\n            destination_name = \"app\"\n            local_bind_port = 9191\n          }\n        ]\n      }\n    }"
+  }
+  "client5" = {
+    product     = "consul"
+    name        = "appserver1"
+    mode        = "client"
+    config      = "sm-envoy"
+    service     = "app"
+    sidecar     = "{}"
+  }
+  "client6" = {
+    product     = "consul"
+    name        = "appserver2"
+    mode        = "client"
+    config      = "sm-envoy"
+    service     = "app"
+    sidecar     = "{}"
+  }
+}
