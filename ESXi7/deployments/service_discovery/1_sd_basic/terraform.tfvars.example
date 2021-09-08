@@ -1,0 +1,41 @@
+esxi_hostname     = "esx1.redtalks.lab"
+esxi_username     = "<username>"
+esxi_password     = "<password>"
+ova_url           = "http://nas.redtalks.lab:8000/rtlabBaseVM.ova"
+vm_guest_username = "<username>"
+vm_guest_password = "<password>"
+
+servers = {
+  count       = 3
+  name_prefix = "consul-server"
+}
+
+service_settings = {
+  name_prefix = "server"
+  services = [
+    {
+      name = "web"
+      meta = "{ version = \"0.1\" }"
+    },
+    {
+      name = "web"
+      meta = "{ version = \"0.2\" }"
+    },
+    {
+      name = "api"
+      meta = "{ version = \"0.1\" }"
+    },
+    {
+      name = "api"
+      meta = "{ version = \"0.2\" }"
+    },
+    {
+      name = "app"
+      meta = "{ version = \"0.1\" }"
+    },
+    {
+      name = "app"
+      meta = "{ version = \"0.2\" }"
+    }
+  ]
+}
