@@ -47,11 +47,14 @@ variable "vm_guest_password" {
 variable "servers" {
   type = object({
     count       = number
+    dc          = string
     name_prefix = string
   })
   default = {
     count = 3
+    dc    = "rtlab-dc-1"
     name_prefix = "consul-server-"
+
   }
 }
 
