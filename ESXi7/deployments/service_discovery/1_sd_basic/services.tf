@@ -71,7 +71,7 @@ resource "esxi_guest" "ConsulClients" {
   provisioner "remote-exec" {
     inline = [
       "echo ${var.vm_guest_password} | sudo -S rm /etc/consul.d/*",
-      "echo ${var.vm_guest_password} | sudo -S hostnamectl set-hostname ${var.service_settings.name_prefix}-${random_id.server_name[count.index].hex}",
+      "echo ${var.vm_guest_password} | sudo -S hostnamectl set-hostname ${var.service_settings.name_prefix}-${random_id.server_name[count.index].keepers.name}-${random_id.server_name[count.index].hex}",
       "echo ${var.vm_guest_password} | sudo -S mv /tmp/consul_client_sd-basic.hcl /etc/consul.d/",
       "echo ${var.vm_guest_password} | sudo -S chown -R consul:consul /etc/consul.d",
       "echo ${var.vm_guest_password} | sudo -S chmod +x /tmp/systemd-setup.sh",
