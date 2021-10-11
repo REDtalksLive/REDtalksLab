@@ -186,7 +186,7 @@ resource "esxi_guest" "ConsulClients" {
   disk_store = "ds1"
   
   boot_disk_type = "thin"
-  boot_disk_size = "35"
+  boot_disk_size = "12"
   
   memsize            = "1024"
   numvcpus           = "1"
