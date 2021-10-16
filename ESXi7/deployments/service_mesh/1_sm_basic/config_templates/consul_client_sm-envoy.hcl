@@ -15,6 +15,7 @@ auto_encrypt = {
 service {
   id            = "${service_id}"
   name          = "${service_name}"
+  port          = ${service_port}
   connect {
     sidecar_service = ${sidecar_config}
   }

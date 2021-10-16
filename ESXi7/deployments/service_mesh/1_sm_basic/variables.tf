@@ -46,34 +46,35 @@ variable "vm_guest_password" {
 
 variable "server_settings" {
   type = map(object({
-    product     = string
-    mode        = string
-    config      = string
-    name        = string
-    mac_addr    = string
+    product  = string
+    mode     = string
+    config   = string
+    name     = string
+    mac_addr = string
   }))
   default = {}
 }
 
 variable "client_settings" {
   type = map(object({
-    product     = string
-    mode        = string
-    config      = string
-    name        = string
-    service     = string
-    sidecar     = string
+    product = string
+    mode    = string
+    config  = string
+    name    = string
+    service = string
+    port    = number
+    sidecar = string
   }))
   default = {}
 }
 
 variable "ingress_gateway_1" {
   type = object({
-    product     = string
-    mode        = string
-    config      = string
-    name        = string
-    service     = string
-    sidecar     = string
+    product = string
+    mode    = string
+    config  = string
+    name    = string
+    service = string
+    sidecar = string
   })
 }
