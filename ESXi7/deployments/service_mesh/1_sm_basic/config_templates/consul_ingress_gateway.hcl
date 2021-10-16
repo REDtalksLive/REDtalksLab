@@ -12,3 +12,6 @@ auto_encrypt = {
   tls = true
 }
 
+ports {
+  grpc = 8502
+}
