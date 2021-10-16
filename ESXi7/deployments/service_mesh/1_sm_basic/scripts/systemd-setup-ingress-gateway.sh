@@ -4,7 +4,7 @@
 #         Setup SystemD         #
 #################################
 
-echo "enabling meshgateway service"
+echo "enabling ingress_gateway service"
 #Create Systemd Config for Consul Mesh Gateway
 cat <<EOF > /etc/systemd/system/ingressgateway.service
 [Unit]
@@ -28,13 +28,13 @@ sleep 30
 
 mkdir /tmp/rtlab
 
-echo "Registering Services w/ Ingress Gateway"
+echo "Setting Service Default"
 #Create Systemd Config for Consul Mesh Gateway
 cat <<EOF > /tmp/rtlab/service_defaults_web.hcl
 
 Kind      = "service-defaults"
 Name      = "web"
-# Namespace = "default"
+# Namespace = "default" # Consul Enterprise
 Protocol  = "http"
 EOF
 
@@ -51,7 +51,7 @@ Name = "ingress-service"
 Listeners = [
  {
    Port = 8081
-   Protocol = "tcp"
+   Protocol = "http"
    Services = [
      {
        Name = "web"
