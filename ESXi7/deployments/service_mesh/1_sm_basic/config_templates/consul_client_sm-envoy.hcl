@@ -3,6 +3,10 @@ data_dir      = "/opt/consul"
 retry_join    = [ ${servers_fqdn} ]
 encrypt       = "${gossip_key}"
 
+#bind_addr     = "{{ GetInterfaceIP \"eth0\" }}"
+#bind_addr     = "{{ GetPrivateInterfaces | include \"network\" \"192.168.1.0/24\" | attr \"address\" }}"
+#bind_addr     = "{{ GetAllInterfaces | include \"name\" \"^eth\" | include \"flags\" \"forwardable|up\" | attr \"address\" }}"
+
 verify_incoming = false,
 verify_outgoing = true,
 verify_server_hostname = true,
