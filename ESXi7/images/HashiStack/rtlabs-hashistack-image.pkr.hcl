@@ -159,7 +159,7 @@ build {
       "/usr/bin/apt-get -y update",
       "/usr/bin/apt-get -y install getenvoy-envoy=1.18.2.p0.gd362e79-1p75.g76c310e",
       "/usr/bin/sh -c \"/usr/bin/wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 /usr/bin/apt-key add -\"",
-      "/usr/bin/echo \"deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main\" | tee /etc/apt/sources.list.d/mongodb-org-5.0.list\"",
+      "/usr/bin/echo \"deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main\" | tee /etc/apt/sources.list.d/mongodb-org-5.0.list",
       "apt-get update",
       "apt-get install -y mongodb-org"
     ]
