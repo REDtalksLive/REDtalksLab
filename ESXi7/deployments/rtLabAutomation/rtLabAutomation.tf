@@ -42,7 +42,7 @@ resource "esxi_guest" "rtLabAutomation" {
 
   provisioner "remote-exec" {
     inline = [
-      "git clone https://github.com/REDtalksLive/REDtalksLabs.git"
+      "git clone https://github.com/REDtalksLive/REDtalksLab.git"
     ]
     connection {
       type     = "ssh"
