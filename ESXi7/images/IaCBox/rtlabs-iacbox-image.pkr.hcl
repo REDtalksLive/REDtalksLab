@@ -22,10 +22,10 @@ source "vmware-iso" "rtLabDebianBaseVM" {
   # Properties of the VM we're building
 
   version              = "19"
-  guest_os_type        = "debian10-64"
+  guest_os_type        = "debian11-64"
   network_name         = "VM Network" # For ESXi. Not required for Fusion Playa.
   network_adapter_type = "vmxnet3"
-  disk_size            = 8192
+  disk_size            = 12288
   cpus                 = 2
   memory               = 2048
 
