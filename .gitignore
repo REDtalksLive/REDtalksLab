@@ -1,4 +1,5 @@
 .terraform.lock.hcl
+.terraform.tfstate.lock.info
 terraform.tfstate
 terraform.tfstate.backup
 terraform.tfvars
@@ -6,3 +7,4 @@ terraform.tfvars
 certs/
 output/
 *.auto.pkrvars.hcl
+packer_cache/
