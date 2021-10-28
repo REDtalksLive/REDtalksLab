@@ -365,10 +365,8 @@ resource "esxi_guest" "ConsulIngressGateway1" {
       {
         servers_fqdn   = local.servers_fqdn,
         service_id     = var.ingress_gateway_1.name,
-        service_name   = var.ingress_gateway_1.service,
         gossip_key     = random_id.gossip_key.b64_std,
-        consul_dc      = "RTlab-dc-1",
-        sidecar_config = var.ingress_gateway_1.sidecar
+        consul_dc      = "RTlab-dc-1"
       }
     )
     destination = "/tmp/consul_ingress_gateway.hcl"

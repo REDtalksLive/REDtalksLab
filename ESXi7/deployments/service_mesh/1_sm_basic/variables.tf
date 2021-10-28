@@ -70,11 +70,6 @@ variable "client_settings" {
 
 variable "ingress_gateway_1" {
   type = object({
-    product = string
-    mode    = string
-    config  = string
     name    = string
-    service = string
-    sidecar = string
   })
 }
