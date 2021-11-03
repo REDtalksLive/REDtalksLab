@@ -7,6 +7,7 @@ vm_guest_password = "<password>"
 
 servers = {
   count       = 3
+  dc          = "rtlab-dc-1"
   name_prefix = "consul-server"
 }
 
