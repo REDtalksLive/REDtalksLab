@@ -32,7 +32,7 @@ source "vmware-iso" "rtLabDebianBaseVM" {
 
   # Things for Packer to do
 
-  ovftool_options  = ["--overwrite"]
+  ovftool_options  = ["--overwrite", "--noImageFiles"]
   http_directory   = "http_preseed"
   iso_url          = var.iso_url
   iso_checksum     = var.iso_sha256
