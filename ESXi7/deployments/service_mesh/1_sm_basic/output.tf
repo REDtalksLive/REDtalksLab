@@ -7,8 +7,26 @@ output "servers" {
   }
 }
 
-output "clients" {
-  value = { for k, v in esxi_guest.ConsulClients :
+output "ServiceChatWebFrontend" {
+  value = { for k, v in esxi_guest.ServiceChatWebFrontend :
+    k => {
+      name = "${v.guest_name}"
+      ip   = "${v.ip_address}",
+    }
+  }
+}
+
+output "ServiceChatApi" {
+  value = { for k, v in esxi_guest.ServiceChatApi :
+    k => {
+      name = "${v.guest_name}"
+      ip   = "${v.ip_address}",
+    }
+  }
+}
+
+output "ServiceChatDatabase" {
+  value = { for k, v in esxi_guest.ServiceChatDatabase :
     k => {
       name = "${v.guest_name}"
       ip   = "${v.ip_address}",

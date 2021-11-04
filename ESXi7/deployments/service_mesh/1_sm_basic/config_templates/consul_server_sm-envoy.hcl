@@ -7,7 +7,7 @@ ui_config         = {
   enabled           = true
 }
 bootstrap_expect  = ${server_count}
-retry_join        = [ ${servers_fqdn} ]
+retry_join        = [ ${servers_retry_join} ]
 
 verify_incoming = true
 verify_outgoing = true

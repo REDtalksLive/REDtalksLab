@@ -1,6 +1,6 @@
 datacenter    = "RTlab-dc-1"
 data_dir      = "/opt/consul"
-retry_join    = [ ${servers_fqdn} ]
+retry_join    = [ ${servers_retry_join} ]
 encrypt       = "${gossip_key}"
 
 #bind_addr     = "{{ GetInterfaceIP \"eth0\" }}"

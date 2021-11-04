@@ -29,7 +29,17 @@ variable "esxi_password" { # Unspecified will prompt
   default = ""
 }
 
-variable "ova_url" {
+variable "server_ova_url" {
+  type    = string
+  default = ""
+}
+
+variable "web_service_ova_url" {
+  type    = string
+  default = ""
+}
+
+variable "db_service_ova_url" {
   type    = string
   default = ""
 }
@@ -44,28 +54,53 @@ variable "vm_guest_password" {
   default = ""
 }
 
-variable "server_settings" {
-  type = map(object({
-    product  = string
-    mode     = string
-    config   = string
-    name     = string
-    mac_addr = string
-  }))
-  default = {}
+variable "servers" {
+  type = object({
+    count       = number
+    dc          = string
+    name_prefix = string
+  })
+  default = {
+    count = 3
+    dc    = "rtlab-dc-1"
+    name_prefix = "consul-server-"
+  }
 }
 
-variable "client_settings" {
-  type = map(object({
-    product = string
-    mode    = string
-    config  = string
-    name    = string
-    service = string
-    port    = number
-    sidecar = string
-  }))
-  default = {}
+variable "service_chat_web_frontend" {
+  type = object({
+    name_prefix = string
+    services = list(object({
+      name = string
+      meta = string
+      port = number
+      sidecar = string
+    }))
+  })
+}
+
+variable "service_chat_api" {
+  type = object({
+    name_prefix = string
+    services = list(object({
+      name = string
+      meta = string
+      port = number
+      sidecar = string
+    }))
+  })
+}
+
+variable "service_chat_database" {
+  type = object({
+    name_prefix = string
+    services = list(object({
+      name = string
+      meta = string
+      port = number
+      sidecar = string
+    }))
+  })
 }
 
 variable "ingress_gateway_1" {
