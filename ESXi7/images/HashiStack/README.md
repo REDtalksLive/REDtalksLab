@@ -44,3 +44,9 @@ export esxi_user=<user_name>
 export esxi_password=<password>
 packer build .
 ```
+
+### Single Build
+
+Instead of letting packer run all of the 'builds' every time, you can single out a specific packer build with the `-only` command option, as following:
+
+`packer build -only=rtLabChatFrontend.vmware-iso.rtLabDebianBaseVM .`
