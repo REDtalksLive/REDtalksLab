@@ -120,7 +120,7 @@ build {
       "/usr/bin/apt-get -y update",
       "/usr/bin/apt-get -y install consul vault nomad consul-terraform-sync",
       "/usr/bin/apt-get -y install apt-transport-https ca-certificates",
-      "/usr/bin/curl -1sLf 'https://deb.dl.getenvoy.io/public/setup.deb.sh' | bash",
+      "/usr/bin/curl -1sLf 'https://deb.dl.getenvoy.io/public/setup.deb.sh' | /usr/bin/bash",
       "/usr/bin/apt-get -y update",
       "/usr/bin/apt-get -y install getenvoy-envoy=1.18.2.p0.gd362e79-1p75.g76c310e"
     ]
@@ -155,7 +155,7 @@ build {
       "/usr/bin/apt-get -y update",
       "/usr/bin/apt-get -y install consul vault nomad consul-terraform-sync",
       "/usr/bin/apt-get -y install apt-transport-https ca-certificates",
-      "/usr/bin/curl -1sLf 'https://deb.dl.getenvoy.io/public/setup.deb.sh' | bash",
+      "/usr/bin/curl -1sLf 'https://deb.dl.getenvoy.io/public/setup.deb.sh' | /usr/bin/bash",
       "/usr/bin/apt-get -y update",
       "/usr/bin/apt-get -y install getenvoy-envoy=1.18.2.p0.gd362e79-1p75.g76c310e",
       "/usr/bin/sh -c \"/usr/bin/wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 /usr/bin/apt-key add -\"",
@@ -168,20 +168,20 @@ build {
 }
 
 #####################################################################
-#                 REDtalks.lab/chat - Front-end UI                  #
-#              HashiStack image plus NodeJS/FeathersJS              #
+#              REDtalks.lab/chat - Front-end API & UI               #
+#                   HashiStack image plus NodeJS                    #
 #####################################################################
 
 build {
 
-  name = "rtLabChatWebFrontend"
+  name = "rtLabChatFrontend"
 
   source "sources.vmware-iso.rtLabDebianBaseVM" {
-    vm_name                 = "rtLabChatWebFrontend"
-    display_name            = "rtLabChatWebFrontend"
-    remote_output_directory = "/Packer/builds/rtLabChatWebFrontend" # format="ova" ignores `remote_output_directory`
-    remote_cache_directory  = "/Packer/cache/rtLabChatWebFrontend"
-    output_directory        = "./output/rtLabChatWebFrontend/"
+    vm_name                 = "rtLabChatFrontend"
+    display_name            = "rtLabChatFrontend"
+    remote_output_directory = "/Packer/builds/rtLabChatFrontend" # format="ova" ignores `remote_output_directory`
+    remote_cache_directory  = "/Packer/cache/rtLabChatFrontend"
+    output_directory        = "./output/rtLabChatFrontend/"
   }
 #TODO: Add Nodejs and NPM
 #TODO: Add git clone of rtlab_chat repo
@@ -197,10 +197,10 @@ build {
       "/usr/bin/apt-get -y update",
       "/usr/bin/apt-get -y install consul vault nomad consul-terraform-sync",
       "/usr/bin/apt-get -y install apt-transport-https ca-certificates",
-      "/usr/bin/curl -1sLf 'https://deb.dl.getenvoy.io/public/setup.deb.sh' | bash",
+      "/usr/bin/curl -1sLf 'https://deb.dl.getenvoy.io/public/setup.deb.sh' | /usr/bin/bash",
       "/usr/bin/apt-get -y update",
       "/usr/bin/apt-get -y install getenvoy-envoy=1.18.2.p0.gd362e79-1p75.g76c310e",
-      "curl -fsSL https://deb.nodesource.com/setup_12.x | bash -",
+      "/usr/bin/curl -fsSL https://deb.nodesource.com/setup_12.x | /usr/bin/bash -",
       "/usr/bin/apt-get -y install nodejs"
     ]
   }
